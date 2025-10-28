@@ -7,10 +7,13 @@
 
 
 This project demonstrates how to use **AJAX (XMLHttpRequest)** in JavaScript to fetch and display data from a **JSON file** without reloading the page. It includes simple examples to show how to request, parse, and render JSON data dynamically on a webpage.
-
-## 🚀 Live Demo
-👉 [Try it on GitHub Pages](http://127.0.0.1:5500/ajax-json-demo/index.html)
 ---
+
+
+##  🚀 Live Demo
+👉 [Try it on GitHub Pages](https://brxwnsugxr.github.io/ajax-json-demo/)
+---
+
 
 ## 📁 Project Structure
 
