@@ -36,8 +36,8 @@
       //  XMLHttpRequest failed
       function handleStatusFailure(xhttp) {
         alert("Ajax request fail");
-        alert("readyState=" + xhttp.readyState);
-        alert("status=" + xhttp.status);
+        // alert("readyState=" + xhttp.readyState);
+        // alert("status=" + xhttp.status);
       }
       // XMLHttpRequest success
       function handleStatusSuccess(xhttp) {
@@ -45,7 +45,7 @@
 
         // get the json
         var jsonText = xhttp.responseText;
-        alert(jsonText);
+        // alert(jsonText);
 
         // parse the json into an object
         var obj = JSON.parse(jsonText);
@@ -62,19 +62,19 @@
         var html = "";
 
         html += "<b>Name:</b>";
-        html += "name here";
+        html += obj.name;
         html += "<br/>";
 
         html += "<b>Abbreviation:</b>";
-        html += "name here";
+        html += obj.abbreviation;
         html += "<br/>";
 
         html += "<b>Email:</b>";
-        html += "name here";
+        html += obj.email;
         html += "<br/>";
 
         html += "<b>website:</b>";
-        html += "name here";
+        html += obj.web;
         html += "<br/>";
 
         // display result in the display div
