@@ -45,7 +45,7 @@
 
         // get the json
         var jsonText = xhttp.responseText;
-        alert(jsonText);
+        // alert(jsonText);
 
         // parse the json into an object
         var obj = JSON.parse(jsonText);
@@ -56,28 +56,49 @@
 
       // display the javascript info on the webpage
       function display(obj) {
-        // TODO
+        var displayDiv = document.getElementById("display");
+        var html = "";
+
+        html += "<b>Search Query:</b>";
+        html += obj.searchQuery;
+        html += "<br/> <br/>";
+
+        html += "<table border='1'>";
+        html += "<tr>";
+        html += "<th>Airport</th>";
+        html += "<th>ICAO</th>";
+        html += "<th>IATA</th>";
+        html += "<th>Location</th>";
+        html += "</tr>";
+
+        for (var i = 0; i < obj.searchResult.length; i++) {
+          var airportObj = obj.searchResult[i];
+
+          html += "<tr>";
+          html += "<td>";
+          html += airportObj.airportName;
+          html += "</td>";
+          html += "<td>";
+          html += airportObj.ICAO;
+          html += "</td>";
+          html += "<td>";
+          html += airportObj.IATA;
+          html += "</td>";
+          html += "<td>";
+          html += airportObj.city + "," + airportObj.country;
+          html += "</td>";
+
+          html += "</tr>";
+        }
+        html += "</table>";
+
+        displayDiv.innerHTML = html;
       }
     </script>
   </head>
   <body>
     <button onclick="makeAjaxQuery();">Search Airport</button>
-    <b>Search Query:</b>
-    obj.searchQuery
-
-    <table>
-      <tr>
-        <th>Airport</th>
-        <th>ICAO</th>
-        <th>IATA</th>
-        <th>Location</th>
-      </tr>
-      <tr>
-        <td>s</td>
-        <td>s</td>
-        <td>s</td>
-        <td>s</td>
-      </tr>
-    </table>
+    <br /><br />
+    <div id="display"></div>
   </body>
 </html>
