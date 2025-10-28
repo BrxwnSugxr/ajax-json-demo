@@ -56,7 +56,29 @@
 
       // display the javascript info on the webpage
       function display(obj) {
-        // TODO
+        // get the display div element
+        var displayDiv = document.getElementById("display");
+        // construct result html
+        var html = "";
+
+        html += "<b>Name:</b>";
+        html += "name here";
+        html += "<br/>";
+
+        html += "<b>Abbreviation:</b>";
+        html += "name here";
+        html += "<br/>";
+
+        html += "<b>Email:</b>";
+        html += "name here";
+        html += "<br/>";
+
+        html += "<b>website:</b>";
+        html += "name here";
+        html += "<br/>";
+
+        // display result in the display div
+        displayDiv.innerHTML = html;
       }
     </script>
   </head>
@@ -64,18 +86,5 @@
     <button onclick="makeAjaxQuery();">Get Faculty Details</button>
     <br /><br />
     <div id="display"></div>
-
-    <b>Name:</b>
-    name here
-    <br />
-    <b>Abbreviation:</b>
-    place here
-    <br />
-    <b>Email:</b>
-    place here
-    <br />
-    <b>website:</b>
-    place here
-    <br />
   </body>
 </html>
