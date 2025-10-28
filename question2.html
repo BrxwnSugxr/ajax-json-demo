@@ -4,6 +4,80 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script>
+      // make ajax query
+      function makeAjaxQuery() {
+        // create an XMLHttpRequest
+        var xhttp = new XMLHttpRequest();
+
+        // create a handler for the readyState change
+        xhttp.onreadystatechange = function () {
+          readyStateChangeHandler(xhttp);
+        };
+
+        // making query by async call
+        var queryUrl = "airport.json";
+        xhttp.open("GET", queryUrl, true);
+        xhttp.send();
+      }
+      // handler for the readyState change
+      function readyStateChangeHandler(xhttp) {
+        if (xhttp.readyState == XMLHttpRequest.DONE) {
+          if (xhttp.status == 200) {
+            // status 200 means OK
+            handleStatusSuccess(xhttp);
+          } else {
+            // status  NOT OK
+            handleStatusFailure(xhttp);
+          }
+        }
+      }
+
+      //  XMLHttpRequest failed
+      function handleStatusFailure(xhttp) {
+        alert("Ajax request fail");
+        alert("readyState=" + xhttp.readyState);
+        alert("status=" + xhttp.status);
+      }
+      // XMLHttpRequest success
+      function handleStatusSuccess(xhttp) {
+        alert("Ajax request Success");
+
+        // get the json
+        var jsonText = xhttp.responseText;
+        alert(jsonText);
+
+        // parse the json into an object
+        var obj = JSON.parse(jsonText);
+
+        // display the object on the web page
+        display(obj);
+      }
+
+      // display the javascript info on the webpage
+      function display(obj) {
+        // TODO
+      }
+    </script>
   </head>
-  <body></body>
+  <body>
+    <button onclick="makeAjaxQuery();">Search Airport</button>
+    <b>Search Query:</b>
+    obj.searchQuery
+
+    <table>
+      <tr>
+        <th>Airport</th>
+        <th>ICAO</th>
+        <th>IATA</th>
+        <th>Location</th>
+      </tr>
+      <tr>
+        <td>s</td>
+        <td>s</td>
+        <td>s</td>
+        <td>s</td>
+      </tr>
+    </table>
+  </body>
 </html>
